@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "T-shirt",
+      "description": "solid black t-shirt, high quality, comfortable",
+      "price": "10.99$",
+      "inStock": true
+    },
+    {
+      "id": 2,
+      "name": "Pants",
+      "description": "solid grey pants, high quality, comfortable",
+      "price": "15.99$",
+      "inStock": true
+    },
+    {
+      "id": 3,
+      "name": "T-shirt",
+      "description": "solid white t-shirt, high quality, comfortable",
+      "price": "10.99$",
+      "inStock": false
+    },
+    {
+      "id": 4,
+      "name": "Pants",
+      "description": "solid black pants, high quality, comfortable",
+      "price": "15.99$",
+      "inStock": false
+    },
+    {
+      "id": 5,
+      "name": "T-shirt",
+      "description": "solid black t-shirt, high quality, comfortable",
+      "price": "10.99$",
+      "inStock": true
+    },
+    {
+      "id": 6,
+      "name": "Pants",
+      "description": "solid grey pants, high quality, comfortable",
+      "price": "15.99$",
+      "inStock": true
+    },
+    {
+      "id": 7,
+      "name": "T-shirt",
+      "description": "solid white t-shirt, high quality, comfortable",
+      "price": "10.99$",
+      "inStock": false
+    },
+    {
+      "id": 8,
+      "name": "Pants",
+      "description": "solid black pants, high quality, comfortable",
+      "price": "15.99$",
+      "inStock": false
+    }
+  ]
+}

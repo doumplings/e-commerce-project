@@ -1,0 +1,10 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "waffle",
+      "email": "waf@gmail.com",
+      "password": "waffle1234"
+    }
+  ]
+}
