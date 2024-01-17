@@ -1,13 +1,12 @@
 import { UserOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const ProfileButton = () => {
+  const navigate = useNavigate();
   return (
-    <Button ghost className="border-none">
-      <Link to={"/profile"}>
-        <UserOutlined />
-      </Link>
+    <Button ghost className="border-none" onClick={() => navigate("/profile")}>
+      <UserOutlined />
     </Button>
   );
 };

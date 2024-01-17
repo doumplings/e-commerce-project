@@ -1,13 +1,12 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const CartButton = () => {
+  const navigate = useNavigate();
   return (
-    <Button ghost className="border-none">
-      <Link to={"/cart"}>
-        <ShoppingCartOutlined />
-      </Link>
+    <Button ghost className="border-none" onClick={() => navigate("/cart")}>
+      <ShoppingCartOutlined />
     </Button>
   );
 };
