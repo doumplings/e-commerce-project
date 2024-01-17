@@ -1,10 +1,11 @@
-import { Divider, Input, Layout } from "antd";
+import { Divider, Layout } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { Content } from "antd/es/layout/layout";
 import { useMyCartContext } from "../../context/myCart.context";
 import { ProductListElement } from "../../components/product/productListElement";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
+import { MyCartSider } from "../../components/sider/myCartSider";
 
 export const MyCartPage = () => {
   const { myCart } = useMyCartContext();
@@ -54,28 +55,7 @@ export const MyCartPage = () => {
         </ul>
       </Content>
       <Sider width={"30%"} className="text-white p-8">
-        <p>Enter discount codes:</p>
-        <Input placeholder="Code" />
-        <Divider style={{ borderColor: "white", marginBottom: 0 }} />
-        <div className="flex flex-col justify-around ">
-          <p>
-            Amount:{" "}
-            <span className="float-right">{totalPrice.toFixed(2)}$</span>
-          </p>
-          <p>
-            Discount: <span className="float-right">0.00</span>
-          </p>
-          <p>
-            Tax: <span className="float-right">{tax.toFixed(2)}$</span>
-          </p>
-          <Divider style={{ borderColor: "white", margin: 0 }} />
-          <h3>
-            Total{" "}
-            <span className="float-right">
-              {(totalPrice + tax).toFixed(2)}$
-            </span>
-          </h3>
-        </div>
+        <MyCartSider totalPrice={totalPrice} tax={tax} />
       </Sider>
     </Layout>
   );
