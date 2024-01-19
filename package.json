@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@hookform/resolvers": "^3.3.4",
+    "@uidotdev/usehooks": "^2.4.1",
     "antd": "^5.12.8",
     "framer-motion": "^10.17.12",
     "localforage": "^1.10.0",

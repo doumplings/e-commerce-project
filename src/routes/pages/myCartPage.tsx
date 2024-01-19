@@ -6,6 +6,7 @@ import { ProductListElement } from "../../components/product/productListElement"
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { MyCartSider } from "../../components/sider/myCartSider";
+import { motion } from "framer-motion";
 
 export const MyCartPage = () => {
   const { myCart } = useMyCartContext();
@@ -25,10 +26,10 @@ export const MyCartPage = () => {
   console.log(totalPrice);
 
   return (
-    <Layout>
-      <Content>
+    <Layout className="overflow-hidden">
+      <Content className="overflow-auto">
         {myCart.length === 0 ? (
-          <div className="grid w-full h-full place-items-center">
+          <div className="grid w-full h-3/4 translate-y-24 place-items-center">
             <div>
               <ShoppingCartOutlined />
               Add items to your cart!!
@@ -46,16 +47,24 @@ export const MyCartPage = () => {
         <ul className="pl-0 m-0 ">
           {myCart.map((item) => {
             return (
-              <>
+              <motion.div
+                initial={{ y: -100 * item.item.id }}
+                animate={{ y: 0, transition: { delay: 0.1 * item.item.id } }}
+              >
                 <ProductListElement item={item} />
                 <Divider style={{ margin: 0 }} />
-              </>
+              </motion.div>
             );
           })}
         </ul>
       </Content>
       <Sider width={"30%"} className="text-white p-8">
-        <MyCartSider totalPrice={totalPrice} tax={tax} />
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0, transition: { type: "spring", duration: 0.5 } }}
+        >
+          <MyCartSider totalPrice={totalPrice} tax={tax} />
+        </motion.div>
       </Sider>
     </Layout>
   );

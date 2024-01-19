@@ -55,6 +55,34 @@
       "description": "solid black pants, high quality, comfortable",
       "price": "15.99",
       "inStock": false
+    },
+    {
+      "id": 9,
+      "name": "T-shirt",
+      "description": "solid white t-shirt, high quality, comfortable",
+      "price": "10.99",
+      "inStock": false
+    },
+    {
+      "id": 10,
+      "name": "Pants",
+      "description": "solid black pants, high quality, comfortable",
+      "price": "15.99",
+      "inStock": false
+    },
+    {
+      "id": 11,
+      "name": "T-shirt",
+      "description": "solid black t-shirt, high quality, comfortable",
+      "price": "10.99",
+      "inStock": true
+    },
+    {
+      "id": 12,
+      "name": "Pants",
+      "description": "solid grey pants, high quality, comfortable",
+      "price": "15.99",
+      "inStock": true
     }
   ]
 }
