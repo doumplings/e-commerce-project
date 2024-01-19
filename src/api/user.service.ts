@@ -5,6 +5,13 @@ export type UserType = {
   password: string;
 };
 
+export const defaultUser = {
+  id: 0,
+  name: "",
+  email: "",
+  password: "",
+};
+
 export const getAllUser = async (): Promise<UserType[]> => {
   const users = await fetch("/data/user.json").then((res) => res.json());
   return users.data;

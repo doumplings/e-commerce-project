@@ -38,10 +38,12 @@ export const UserContextProvider = ({ children }: UserContextProvider) => {
 
 export const useUserContext = () => {
   const userContext = useContext(UserContext);
-
   if (userContext === undefined) {
     throw new Error("usercontext is undefined");
   }
+
   const { user, setUser } = userContext;
-  return { user, setUser };
+  const isLoggedIn = user.id === 0 ? false : true;
+
+  return { user, setUser, isLoggedIn };
 };
