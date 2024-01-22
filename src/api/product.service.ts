@@ -30,3 +30,29 @@ export const getSortedProductsByStock = (products: ProductType[]) => {
 
   return sortedProducts;
 };
+
+export const getSortedProductsByType = async (type: {
+  tShirt: boolean;
+  pants: boolean;
+}): Promise<ProductType[]> => {
+  const products = await getAllProducts();
+  const tShirtProducts = products.filter(
+    (product) => product.name === "T-shirt"
+  );
+  const pantsProducts = products.filter((product) => product.name === "Pants");
+
+  if (type.tShirt) {
+    if (type.pants) {
+      const bothTypesProducts = tShirtProducts.concat(pantsProducts);
+      return getSortedProductsByStock(bothTypesProducts);
+    } else {
+      return getSortedProductsByStock(tShirtProducts);
+    }
+  } else {
+    if (type.pants) {
+      return getSortedProductsByStock(pantsProducts);
+    } else {
+      return [];
+    }
+  }
+};
