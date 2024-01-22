@@ -2,7 +2,7 @@ export type ProductType = {
   id: number;
   name: string;
   description: string;
-  price: string;
+  price: number;
   inStock: boolean;
 };
 
@@ -16,4 +16,17 @@ export const getProduct = async (productId: number): Promise<ProductType> => {
   const product = products.filter((product) => product.id === productId);
 
   return product[0];
+};
+
+export const getSortedProductsByStock = (products: ProductType[]) => {
+  let inStockProducts: ProductType[] = [];
+  let outOfStockProducts: ProductType[] = [];
+  products.map((product) =>
+    product.inStock
+      ? inStockProducts.push(product)
+      : outOfStockProducts.push(product)
+  );
+  const sortedProducts = inStockProducts.concat(outOfStockProducts);
+
+  return sortedProducts;
 };

@@ -2,7 +2,7 @@ import { Layout } from "antd";
 import { ProductCarousel } from "../../components/carousel/productCarouselAuto";
 import Sider from "antd/es/layout/Sider";
 import { SiderCollapse } from "../../components/sider/siderCollapse";
-import { Content } from "antd/es/layout/layout";
+import { Content, Footer } from "antd/es/layout/layout";
 import { ProductGrid } from "../../components/product/productGrid";
 import { motion } from "framer-motion";
 
@@ -18,6 +18,7 @@ export const ProductsPage = () => {
           <ProductGrid />
         </Content>
       </Layout>
+      <Footer>Contact Us</Footer>
     </motion.div>
   );
 };

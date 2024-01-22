@@ -1,8 +1,8 @@
 import Search from "antd/es/input/Search";
 import { Header } from "antd/es/layout/layout";
-import { CartButton } from "../cart/cartButton";
-import { ProfileButton } from "../profile/profileButton";
-import { ShopButton } from "../product/shopButton";
+import { CartButton } from "../button/cartButton";
+import { ProfileButton } from "../button/profileButton";
+import { ShopButton } from "../button/shopButton";
 
 export const RootHeader = () => {
   return (

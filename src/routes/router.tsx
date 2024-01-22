@@ -1,10 +1,12 @@
-import { Link, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { Root } from "./pages/root";
 import { ProductsPage } from "./pages/productsPages";
-import { Button } from "antd";
 import { LoginPage } from "./pages/loginPage";
 import { RegisterPage } from "./pages/registerPage";
 import { ProductPage } from "./pages/productPage";
+import { MyCartPage } from "./pages/myCartPage";
+import { ProfilePage } from "./pages/profilePage";
+import { LandingPage } from "./pages/landingPage";
 
 export const router = createBrowserRouter([
   {
@@ -13,11 +15,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <Button className="absolute top-1/2 left-1/4 w-1/2">
-            <Link to={"products"}>All Products</Link>
-          </Button>
-        ),
+        element: <LandingPage />,
       },
       {
         path: "products",
@@ -29,7 +27,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <LoginPage />,
+        element: <ProfilePage />,
       },
       {
         path: "login",
@@ -38,7 +36,7 @@ export const router = createBrowserRouter([
       { path: "register", element: <RegisterPage /> },
       {
         path: "cart",
-        element: <div>my Cart</div>,
+        element: <MyCartPage />,
       },
     ],
   },
