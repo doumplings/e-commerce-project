@@ -4,6 +4,7 @@ import { InStockTag } from "./inStockTag";
 import { OutOfStockTag } from "./outOfStockTag";
 import { Modal } from "antd";
 import { DeleteOutlined, ExclamationCircleFilled } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 interface ProductListElementProps {
   item: MyCartType;
@@ -50,13 +51,21 @@ export const ProductListElement = ({ item }: ProductListElementProps) => {
 
   return (
     <>
-      <li key={item.item.id} className="list-none  ">
+      <li key={item.item.id} className="list-none">
         <div className="grid grid-cols-4  ">
           <div className="ml-4">
-            <h3>{item.item.name}</h3>
-            <p className="w-14">
+            <h3>
+              <Link
+                style={{ WebkitTextFillColor: "black" }}
+                to={`/product/${item.item.id}`}
+                state={item.item.id}
+              >
+                {item.item.name}
+              </Link>
+            </h3>
+            <div className="w-14 mb-4">
               {item.item.inStock ? <InStockTag /> : <OutOfStockTag />}
-            </p>
+            </div>
           </div>
           <div className="grid place-items-center">
             <p>{item.item.price}</p>

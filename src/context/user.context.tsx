@@ -4,9 +4,10 @@ import {
   SetStateAction,
   createContext,
   useContext,
+  useEffect,
   useState,
 } from "react";
-import { UserType } from "../api/user.service";
+import { UserType, getUserfromLocalStorage } from "../api/user.service";
 
 interface UserContextProvider {
   children: ReactNode;
@@ -39,11 +40,21 @@ export const UserContextProvider = ({ children }: UserContextProvider) => {
 export const useUserContext = () => {
   const userContext = useContext(UserContext);
   if (userContext === undefined) {
-    throw new Error("usercontext is undefined");
+    throw new Error("userContext is undefined");
   }
 
   const { user, setUser } = userContext;
   const isLoggedIn = user.id === 0 ? false : true;
+  useEffect(() => {
+    if (!isLoggedIn) {
+      const savedUser = getUserfromLocalStorage();
+      if (savedUser === null) {
+        null;
+      } else {
+        setUser(savedUser);
+      }
+    }
+  }, [isLoggedIn]);
 
   return { user, setUser, isLoggedIn };
 };

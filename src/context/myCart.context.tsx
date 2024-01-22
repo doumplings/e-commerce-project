@@ -4,9 +4,14 @@ import {
   SetStateAction,
   createContext,
   useContext,
+  useEffect,
   useState,
 } from "react";
 import { ProductType } from "../api/product.service";
+import {
+  getProductsFromLocalStorage,
+  setProductsToLocalStorage,
+} from "../api/myCart.service";
 
 export type MyCartType = {
   item: ProductType;
@@ -43,6 +48,19 @@ export const useMyCartContext = () => {
     throw new Error("MyCart context is undefined");
   }
   const { myCart, setMyCart } = myCartContext;
+
+  useEffect(() => {
+    if (myCart === undefined) {
+      const savedProducts = getProductsFromLocalStorage();
+      if (savedProducts === null) {
+        null;
+      } else {
+        setMyCart(savedProducts);
+      }
+    } else {
+      setProductsToLocalStorage(myCart);
+    }
+  }, [myCart]);
 
   return { myCart, setMyCart };
 };

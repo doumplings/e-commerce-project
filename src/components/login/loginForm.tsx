@@ -43,8 +43,6 @@ export const LoginForm = () => {
   });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-
     setLoading(true);
     getUser(data.username).then((res): any => {
       if (res === undefined) {

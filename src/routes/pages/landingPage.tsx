@@ -8,9 +8,11 @@ export const LandingPage = () => {
     <div className="overflow-hidden h-screen w-screen">
       <motion.div
         className="grid place-items-center"
+        initial={{ opacity: 0 }}
         animate={{
           x: [100, 500, 100],
-          transition: { duration: 50, repeat: Infinity },
+          opacity: 1,
+          transition: { duration: 20, repeat: Infinity },
         }}
       >
         <img

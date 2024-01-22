@@ -1,4 +1,4 @@
-import { UserOutlined } from "@ant-design/icons";
+import { LoginOutlined, UserOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/user.context";
@@ -17,7 +17,7 @@ export const ProfileButton = () => {
 
   return (
     <Button ghost className="border-none" onClick={handleClick}>
-      <UserOutlined />
+      {isLoggedIn ? <UserOutlined /> : <LoginOutlined />}
     </Button>
   );
 };

@@ -48,6 +48,7 @@ export const MyCartPage = () => {
           {myCart.map((item) => {
             return (
               <motion.div
+                key={item.item.id}
                 initial={{ y: -100 * item.item.id }}
                 animate={{ y: 0, transition: { delay: 0.1 * item.item.id } }}
               >

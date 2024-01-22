@@ -37,7 +37,7 @@ export const setUsertoLocalStorage = (user: UserType) => {
   localStorage.setItem("user", userString);
 };
 
-export const getUserfromLocalStorage = () => {
+export const getUserfromLocalStorage = (): UserType | null => {
   const savedUser = localStorage.getItem("user");
 
   if (savedUser === null) {

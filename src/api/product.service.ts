@@ -17,3 +17,16 @@ export const getProduct = async (productId: number): Promise<ProductType> => {
 
   return product[0];
 };
+
+export const getSortedProductsByStock = (products: ProductType[]) => {
+  let inStockProducts: ProductType[] = [];
+  let outOfStockProducts: ProductType[] = [];
+  products.map((product) =>
+    product.inStock
+      ? inStockProducts.push(product)
+      : outOfStockProducts.push(product)
+  );
+  const sortedProducts = inStockProducts.concat(outOfStockProducts);
+
+  return sortedProducts;
+};
