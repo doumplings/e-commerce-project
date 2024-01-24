@@ -50,18 +50,18 @@ export const useMyCartContext = () => {
   const { myCart, setMyCart } = myCartContext;
 
   useEffect(() => {
-    if (myCart.length === 0) {
-      const savedProducts = getProductsFromLocalStorage();
-      if (savedProducts === null) {
-        null;
-      } else {
-        setMyCart(savedProducts);
-      }
+    const savedCart = getProductsFromLocalStorage();
+    if (myCart.length === 0 && savedCart !== null) {
+      setMyCart(savedCart);
+      console.log("setting saved cart");
     } else {
+      console.log(" setting to local storage");
       setProductsToLocalStorage(myCart);
-      console.log("products set to local storage");
     }
-  }, [myCart]);
+
+    if (myCart.length === 1) {
+    }
+  }, [myCart.length]);
 
   return { myCart, setMyCart };
 };

@@ -5,6 +5,7 @@ import { OutOfStockTag } from "./outOfStockTag";
 import { Modal } from "antd";
 import { DeleteOutlined, ExclamationCircleFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { setProductsToLocalStorage } from "../../api/myCart.service";
 
 interface ProductListElementProps {
   item: MyCartType;
@@ -12,12 +13,14 @@ interface ProductListElementProps {
 
 export const ProductListElement = ({ item }: ProductListElementProps) => {
   const { confirm } = Modal;
-  const { setMyCart } = useMyCartContext();
+  const { myCart, setMyCart } = useMyCartContext();
 
   const handleDeleteItem = () => {
-    setMyCart((prev) =>
-      prev.filter((product) => product.item.id !== item.item.id)
+    const filteredCart = myCart.filter(
+      (product) => product.item.id !== item.item.id
     );
+    setMyCart(filteredCart);
+    setProductsToLocalStorage(filteredCart);
   };
 
   const handleStep = (value: number) => {
