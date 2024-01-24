@@ -1,5 +1,6 @@
 import { Collapse, CollapseProps } from "antd";
-import { TypeCollapseCheckbox } from "./collapseCheckbox";
+import { TypeCollapseCheckbox } from "./typeCollapseCheckbox";
+import { StockCollapseCheckbox } from "./stockCollapseCheckbox";
 
 export const SiderCollapse = () => {
   const items: CollapseProps["items"] = [
@@ -7,6 +8,11 @@ export const SiderCollapse = () => {
       key: 1,
       label: "Type",
       children: <TypeCollapseCheckbox />,
+    },
+    {
+      key: 2,
+      label: "Stock",
+      children: <StockCollapseCheckbox />,
     },
   ];
 
