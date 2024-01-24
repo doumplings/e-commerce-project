@@ -56,3 +56,13 @@ export const getSortedProductsByType = async (type: {
     }
   }
 };
+
+export const getProductByName = async (
+  name: string
+): Promise<ProductType[]> => {
+  const products = await getAllProducts();
+  const filteredProducts = products.filter(
+    (product) => product.name.toLowerCase().indexOf(name) !== -1
+  );
+  return filteredProducts;
+};

@@ -50,7 +50,7 @@ export const useMyCartContext = () => {
   const { myCart, setMyCart } = myCartContext;
 
   useEffect(() => {
-    if (myCart === undefined) {
+    if (myCart.length === 0) {
       const savedProducts = getProductsFromLocalStorage();
       if (savedProducts === null) {
         null;
@@ -59,6 +59,7 @@ export const useMyCartContext = () => {
       }
     } else {
       setProductsToLocalStorage(myCart);
+      console.log("products set to local storage");
     }
   }, [myCart]);
 
