@@ -8,7 +8,7 @@ Features:
 - user saved to local storage
 - product filtering
 - add to cart
-- products automatically saved to local storage
+- products added to cart automatically saved to local storage
 
 Third party libraries include: 
 - react hook form
